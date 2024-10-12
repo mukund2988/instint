@@ -1,0 +1,150 @@
+
+
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./assets/Door-to-Door\ Services\ Your\ Trusted\ Solution\ for\ Everyday\ Needs.png');
+    font-family: Arial, sans-serif;
+    color: white; 
+    display: flex; 
+    flex-direction: column; 
+    overflow-x: hidden;
+}
+/* Background Image Section */
+.hero {
+    background-image: url('./assets/Welcome to.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; /* Full height */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    padding-top: 60px; /* Add padding to prevent content from being hidden behind the navbar */
+}
+
+.hero h1 {
+    font-size: 48px; 
+    color: #ee7631; 
+    background: linear-gradient(to right, #02a6ff, #f2f2f9, #e813f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 24px; 
+    color: #fff; 
+    background: linear-gradient(to right, #ee7631, #eecc69, #84d6e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: #ee7631; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none; 
+    transition: background-color 0.3s; 
+}
+
+.button:hover {
+    background-color: #f2c94c; 
+}
+
+/* Contact Us Section */
+.contact {
+
+    margin: 2px;
+    padding: 40px 20px; 
+    background-image: url('https://getwallpapers.com/wallpaper/full/2/c/8/719234-full-size-beautiful-background-images-1920x1080-samsung-galaxy.jpg');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 30px; 
+    color: #ee7631; 
+    background: linear-gradient(#e683f4, #7474ef, #50afef);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.contact form {
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+.contact input, 
+.contact textarea {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 20px; 
+    border: none; 
+    border-radius: 5px; 
+}
+
+.contact button {
+    background-color: #ee7631; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 18px; 
+}
+
+.contact button:hover {
+    background-color: #f2c94c; 
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; 
+    }
+
+    .hero h1 {
+        font-size: 32px; 
+    }
+
+    .hero p {
+        font-size: 18px; 
+    }
+
+    .button {
+        font-size: 16px; 
+        padding: 8px 16px; 
+    }
+} 
+.social-media {
+    display: flex;
+    justify-content: center; /* Center the icons */
+    margin-top: 20px; /* Space above the social media links */
+}
+
+.social-icon {
+    font-size: 30px; /* Set font size for icons */
+    margin: 0 15px; /* Space between icons */
+    color: rgb(31, 23, 24); /* Icon color */
+    transition: transform 0.3s; /* Add transition effect */
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Enlarge icons on hover */
+}

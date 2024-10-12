@@ -1,0 +1,101 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('/assets/images\ \(1\).jpeg');
+    font-family: Arial, sans-serif;
+    color: white; 
+    display: flex; 
+    flex-direction: column; 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.services-section {
+    background-image: url('/assets/services-background.jpg'); /* Change this to your services background image */
+    background-size: cover;
+    background-position: center;
+    margin: 20px;
+    padding: 100px 20px; /* Add padding for space */
+    text-align: center; /* Center text */
+    color: white; /* Text color */
+}
+
+.services-section h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center items horizontally */
+    gap: 60px; /* Space between service cards */
+    max-width: 1200px; /* Limit width */
+    margin: 0 auto; /* Center the container */
+}
+
+.service {
+    background: rgba(121, 76, 236, 0.7); /* Semi-transparent background for service cards */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside cards */
+    max-width: 250px; /* Limit width of service cards */
+    text-align: center; /* Center text inside cards */
+    transition: transform 0.3s; /* Transition for hover effect */
+}
+
+.service:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.service img {
+    width: 100%; /* Make the image responsive */
+    border-radius: 10px; /* Rounded corners for images */
+    margin-bottom: 15px; /* Space below the image */
+}
+
+.service h3 {
+    font-size: 24px;
+    margin: 10px 0; /* Space above and below the service name */
+    color: #f48b29; /* Change service name color */
+}
+
+.service p {
+    font-size: 14px;
+    margin: 5px 0; /* Space above and below the description */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for description */
+}
+
+.book-button {
+    background-color: #f48b29; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    padding: 15px 30px; /* Padding for the button */
+    font-size: 18px; /* Button font size */
+    cursor: pointer; /* Cursor style on hover */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 40px; /* Space above the button */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make it inline-block */
+}
+
+.book-button:hover {
+    background-color: #e07c25; /* Darker shade on hover */
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    .services-container {
+        flex-direction: column; /* Stack services in a column on small screens */
+        align-items: center; /* Center the items */
+    }
+
+    .service {
+        max-width: 100%; /* Take full width in small screens */
+    }
+}
