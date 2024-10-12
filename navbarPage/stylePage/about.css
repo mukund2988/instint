@@ -161,14 +161,14 @@ body {
 }
 .heading
 {
-    background: linear-gradient(to right, #d1b4ff, #edf0f3, #dd1c1c);
+    background: linear-gradient(to right, #68dfd9, #e5f9e9, #d716f0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
 }
 .para
 {
-    background: linear-gradient(to right, #daee21, #edf0f3, #dd1c1c);
+    background: linear-gradient(to right, #daee21, #fbe3c2, #dd1c1c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
