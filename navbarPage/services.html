@@ -13,30 +13,40 @@
         }
         .search-container {
             position: relative;
-            z-index: 1000; 
-            margin: 150px auto 20px;
+            z-index: 1000;
+            margin: 130px auto 20px;
             text-align: center;
         }
         #searchInput {
             padding: 10px;
             width: 300px;
-            border: 2px solid #34cbdf;
-            border-radius: 20px;
+            border: 2px solid #f48b29;
+            border-radius: 50px;
             font-size: 16px;
         }
-        #searchButton {
-            margin: 2px;
-            padding: 10px 20px;
-            border: none;
-            background-color: #f48b29;
-            color: white;
-            border-radius: 20px;
-            margin-left: 10px;
+        #searchSuggestions {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            border: 1px solid #46a1eb;
+            background-color: rgb(115, 233, 149);
+            z-index: 1000;
+            display: none;
+            max-height: 150px;
+            overflow-y: auto;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #searchSuggestions div {
+            padding: 10px;
             cursor: pointer;
-            font-size: 16px;
+            border-bottom: 1px solid #1f1c1c;
         }
-        #searchButton:hover {
-            background-color: #e07c25;
+        #searchSuggestions div:hover {
+            background-color: #f48b29;
+            color: rgb(14, 11, 11);
         }
     </style>
 </head>
@@ -54,9 +64,10 @@
         </ul>
         
     </nav>
+
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search services...">
-        <button id="searchButton" onclick="filterServices()">Search</button>
+        <div id="searchSuggestions"></div>
     </div>
 
     <div class="services-section">
@@ -129,8 +140,38 @@
     <footer>
         <p>All rights reserved © Mukund Chaturvedi</p>
     </footer>
-    <script src="/navbarPage/scriptPage/services.js"></script>
     <script>
+        document.getElementById('searchInput').addEventListener('input', showSuggestions);
+
+        function showSuggestions() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const suggestionsContainer = document.getElementById('searchSuggestions');
+            const services = document.querySelectorAll('.service');
+            let matches = [];
+
+            services.forEach(service => {
+                const serviceName = service.getAttribute('data-name').toLowerCase();
+                if (serviceName.includes(input) && input !== "") {
+                    matches.push(serviceName);
+                }
+            });
+
+            if (matches.length > 0) {
+                suggestionsContainer.innerHTML = matches.map(match => `<div onclick="selectService('${match}')">${match}</div>`).join('');
+                suggestionsContainer.style.display = 'block';
+            } else {
+                suggestionsContainer.style.display = 'none';
+            }
+        }
+
+        function selectService(serviceName) {
+            document.getElementById('searchInput').value = serviceName;
+            document.getElementById('searchSuggestions').style.display = 'none';
+
+            // Optionally trigger the search to filter the displayed services
+            filterServices();
+        }
+
         function filterServices() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const services = document.querySelectorAll('.service');
