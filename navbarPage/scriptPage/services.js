@@ -1,28 +1,28 @@
 const menuToggle = document.getElementById('menuToggle');
-        const navbarLinks = document.getElementById('navbar-links');
-        const navLinks = document.querySelectorAll('.navbar a');
-        const navbar = document.getElementById('navbar');
+const navbarLinks = document.getElementById('navbar-links');
+const navbar = document.getElementById('navbar');
+const logo = document.querySelector('.navbar .logo');
 
-        // Toggle menu on button click
-        menuToggle.addEventListener('click', () => {
-            navbarLinks.classList.toggle('show');
-        });
+// Toggle menu on button click
+menuToggle.addEventListener('click', () => {
+    navbarLinks.classList.toggle('show');
+});
 
-        // Close the toggle when a nav link is clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navbarLinks.classList.remove('show');
-            });
-        });
+// Hide logo, navbar, and menu toggle on scroll down, show on scroll up
+let lastScrollTop = 0;
 
-        let lastScrollTop = 0;
+window.addEventListener('scroll', () => {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-        window.addEventListener('scroll', () => {
-            let st = window.pageYOffset || document.documentElement.scrollTop;
-            if (st > lastScrollTop) {
-                navbar.style.transform = 'translateY(-100%)'; // Hide navbar
-            } else {
-                navbar.style.transform = 'translateY(0)'; // Show navbar
-            }
-            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-        });
+    if (currentScroll > lastScrollTop) {
+        navbar.style.top = '-100px'; // Hides navbar when scrolling down
+        logo.style.opacity = '0'; // Hides logo
+        menuToggle.style.opacity = '0'; // Hides toggle button
+    } else {
+        navbar.style.top = '0'; // Shows navbar when scrolling up
+        logo.style.opacity = '1'; // Shows logo
+        menuToggle.style.opacity = '1'; // Shows toggle button
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevents negative scrolling
+});
