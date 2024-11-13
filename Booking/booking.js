@@ -1,32 +1,41 @@
-function validateForm() {
-    const name = document.getElementById('name').value.trim();
-    const contact = document.getElementById('contact').value.trim();
-    const address = document.getElementById('address').value.trim();
-    const houseNo = document.getElementById('house_no').value.trim();
-    const landmark = document.getElementById('landmark').value.trim();
-    const pincode = document.getElementById('pincode').value.trim();
-    const timing = document.getElementById('timing').value;
-    const date = document.getElementById('date').value;
-    const services = Array.from(document.querySelectorAll('input[name="service"]:checked')).map(service => service.value);
 
-    const pincodePattern = /^[0-9]{6}$/;
-    const contactPattern = /^[0-9]{10}$/;
+  function sendEmail() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const contact = document.getElementById("contact").value;
+    const address = document.getElementById("address").value;
+    const houseNo = document.getElementById("house_no").value;
+    const landmark = document.getElementById("landmark").value;
+    const pincode = document.getElementById("pincode").value;
+    const timing = document.getElementById("timing").value;
+    const date = document.getElementById("date").value;
+    const services = Array.from(document.querySelectorAll('input[name="service"]:checked'))
+      .map(service => service.value)
+      .join(", ");
 
-    if (!name || !contact || !address || !houseNo || !landmark || !pincode || !timing || !date || services.length === 0) {
-      alert("Please fill all required fields.");
-      return false;
-    }
+    const templateParams = {
+      name,
+      email,
+      contact,
+      address,
+      houseNo,
+      landmark,
+      pincode,
+      timing,
+      date,
+      services
+    };
 
-    if (!contactPattern.test(contact)) {
-      alert("Please enter a valid 10-digit contact number.");
-      return false;
-    }
-
-    if (!pincodePattern.test(pincode)) {
-      alert("Please enter a valid 6-digit pincode.");
-      return false;
-    }
-
-    alert("Form submitted successfully!");
-    // Proceed with form submission
+    emailjs.send("service_csm3rzx", "template_ewbzjs6", templateParams)
+      .then(function(response) {
+        alert("Your request has been sent successfully!");
+      }, function(error) {
+        alert("An error occurred. Please try again.");
+      });
   }
+
+  document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    sendEmail(); // Call the sendEmail function to send the email
+  });
+
