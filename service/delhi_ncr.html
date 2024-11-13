@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="/navbarPage/stylePage/delhi_ncr.css">
+    <link rel="icon" href="/assets/favicon/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>instint</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .search-container {
+            position: relative;
+            z-index: 1000;
+            margin: 130px auto 20px;
+            text-align: center;
+        }
+        #searchInput {
+            padding: 10px;
+            width: 300px;
+            border: 2px solid #f48b29;
+            border-radius: 50px;
+            font-size: 16px;
+        }
+        #searchSuggestions {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            border: 1px solid #46a1eb;
+            background-color: rgb(115, 233, 149);
+            z-index: 1000;
+            display: none;
+            max-height: 150px;
+            overflow-y: auto;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #searchSuggestions div {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #1f1c1c;
+        }
+        #searchSuggestions div:hover {
+            background-color: #f48b29;
+            color: rgb(14, 11, 11);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar" id="navbar">
+        <img src="/assets/logo.png" alt="Logo" class="logo">
+        <button class="menu-toggle" id="menuToggle"><b>☰</b></button>
+        <ul id="navbar-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/navbarPage/about.html">About</a></li>
+            <li class="dropdown" >
+                <a href="javascript:void(0)" class="dropdown-btn-1">Our Services</a>
+                <div class="dropdown-content">
+                    <a href="/navbarPage/service/delhi_ncr.html" target="_self">Delhi NCR</a>
+                    <a href="/navbarPage/service/allahabad.html" target="_self" >Allahabad</a>
+                </div>
+            </li>
+            <li><a href="/index.html">Contact</a></li>
+        </ul>
+        
+    </nav>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search services...">
+        <div id="searchSuggestions"></div>
+    </div>
+
+    <div class="services-section">
+        <h2>Our Services</h2>
+        
+        <div class="services-container">
+            <div class="service" data-name="cook">
+                <img src="/assets/services/cook.jpeg" alt="Service 1">
+                <h3>Cook</h3>
+                <p>Enjoy the convenience of a personal chef who brings delicious, home-cooked meals right to your table, tailored to your taste and prepared with the freshest ingredients.</p>
+            </div>
+            
+            <div class="service" data-name="electrician">
+                <img src="/assets/services/images (1).jpeg" alt="Service 2">
+                <h3>Electrician</h3>
+                <p>We offer expert electrical services, delivering highly skilled electricians to your doorstep to ensure efficient and safe solutions for all your electrical needs.</p>
+            </div>
+            
+            <div class="service" data-name="carpenter">
+                <img src="/assets/services/carpenter.jpeg" alt="Service 3">
+                <h3>Carpenter</h3>
+                <p>Transform your living space with our expert carpentry services, providing custom craftsmanship and precise solutions for all your furniture and home improvement needs.</p>
+            </div>
+            
+            <div class="service" data-name="home cleaning">
+                <img src="/assets/services/homecli.jpeg" alt="Service 4">
+                <h3>Home Cleaning</h3>
+                <p>Experience a spotless home with our professional cleaning services, offering meticulous attention to detail and a fresh, inviting living space that you can enjoy effortlessly.</p>
+            </div>
+            
+            <div class="service" data-name="dog walker">
+                <img src="/assets/services/dogwakler.jpeg" alt="Service 5">
+                <h3>Dog Walker</h3>
+                <p>Give your furry friend the exercise and care they deserve with our trusted dog walking services, ensuring they stay happy, healthy, and active while you're away.</p>
+            </div>
+
+            <div class="service" data-name="water-tank service">
+                <img src="/assets/services/watertank cl.jpeg" alt="Service 6">
+                <h3>Water-Tank Service</h3>
+                <p>Get your water tank cleaned and maintained by professionals who ensure thorough and hygienic service, keeping your water supply fresh and safe at all times.</p>
+            </div>
+            
+            <div class="service" data-name="plumber">
+                <img src="/assets/services/plumber.jpg" alt="Service 7">
+                <h3>Plumber</h3>
+                <p>We provide top-quality plumbing services, offering skilled and reliable plumbers right at your doorstep to ensure the best service experience.</p>
+            </div>
+
+            <div class="service" data-name="barber">
+                <img src="/assets/services/barbe.jpeg" alt="Service 8">
+                <h3>Barber</h3>
+                <p>We provide top-quality barber services, offering skilled and reliable barbers right at your doorstep to ensure the best service experience.</p>
+            </div>
+
+            <div class="service" data-name="parlour">
+                <img src="/assets/services/parl.jpeg" alt="Service 9">
+                <h3>Parlour</h3>
+                <p>We provide top-quality parlour services, offering skilled and reliable beauticians right at your doorstep to ensure the best service experience.</p>
+            </div>
+
+            <div class="service" data-name="aquarium">
+                <img src="/assets/services/aqur.jpeg" alt="Service 10">
+                <h3>Aquarium</h3>
+                <p>We provide top-quality aquarium services, ensuring the best maintenance for your fish and aquatic life.</p>
+            </div>
+            
+        </div>
+        <a href="/Booking/booking.html" class="book-button"  target="_self">Explore & Booking</a>
+    </div>
+    <footer>
+        <p>All rights reserved © Mukund Chaturvedi</p>
+    </footer>
+    <script src="/navbarPage/scriptPage/delhi_ncr.js"></script>
+    <script>
+        document.getElementById('searchInput').addEventListener('input', showSuggestions);
+
+        function showSuggestions() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const suggestionsContainer = document.getElementById('searchSuggestions');
+            const services = document.querySelectorAll('.service');
+            let matches = [];
+
+            services.forEach(service => {
+                const serviceName = service.getAttribute('data-name').toLowerCase();
+                if (serviceName.includes(input) && input !== "") {
+                    matches.push(serviceName);
+                }
+            });
+
+            if (matches.length > 0) {
+                suggestionsContainer.innerHTML = matches.map(match => `<div onclick="selectService('${match}')">${match}</div>`).join('');
+                suggestionsContainer.style.display = 'block';
+            } else {
+                suggestionsContainer.style.display = 'none';
+            }
+        }
+
+        function selectService(serviceName) {
+            document.getElementById('searchInput').value = serviceName;
+            document.getElementById('searchSuggestions').style.display = 'none';
+
+            // Optionally trigger the search to filter the displayed services
+            filterServices();
+        }
+
+        function filterServices() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const services = document.querySelectorAll('.service');
+
+            services.forEach(service => {
+                const serviceName = service.getAttribute('data-name').toLowerCase();
+                if (serviceName.includes(input)) {
+                    service.style.display = ""; // Show the service
+                } else {
+                    service.style.display = "none"; // Hide the service
+                }
+            });
+        }
+    </script>
+</body>
+</html>
