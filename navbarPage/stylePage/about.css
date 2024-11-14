@@ -118,7 +118,7 @@ body {
     .menu-toggle {
         left: 50%; /* Center horizontally */
         transform: translateX(-50%); /* Shift left by half its width */
-        top: 5px; /* Keep the toggle at the top */
+        top: 10px; /* Keep the toggle at the top */
     }
 }
 

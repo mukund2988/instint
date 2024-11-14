@@ -47,6 +47,52 @@ body {
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
 }
+/* 2*/
+
+.hero2 {
+    background-image: url('./assets/hero2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; /* Full height */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    padding-top: 60px; /* Add padding to prevent content from being hidden behind the navbar */
+}
+
+.hero2 h1 {
+    font-size: 48px; 
+    color: #ee7631; 
+    background: linear-gradient(to right, #02a6ff, #f2f2f9, #e813f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.hero2 p {
+    font-size: 24px; 
+    color: #fff; 
+    background: linear-gradient(to right, #ee7631, #eecc69, #84d6e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; 
+    }
+
+    .hero2 h1 {
+        font-size: 32px; 
+    }
+
+    .hero2 p {
+        font-size: 18px; 
+    }
+}
 
 .button {
     background-color: #ee7631; 
