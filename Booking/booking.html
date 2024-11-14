@@ -3,109 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/assets/faviconn/logo.png" type="image/png">
-  <title>instint</title>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">
-      (function() {
-          // https://dashboard.emailjs.com/admin/account
-          emailjs.init({
-            publicKey: "bkKOcE0rOiMKcNhBz",
-          });
-      })();
-      
-    </script>
-  
+  <title>Instint Service Request Form</title>
   <style>
-    
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      height: 100vh;
+    /* Base styles for mobile-first approach */
+    body, html {
       margin: 0;
-      background-color: #f0f0f0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
     }
     .form-container {
-      width: 100%;
-      max-width: 800px;
+      max-width: 500px;
       padding: 20px;
+      margin: auto;
       background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
-      margin-top: 20px;
+    }
+    h1 {
+      font-size: 1.5em;
+      text-align: center;
+      margin-bottom: 1em;
     }
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
-    .form-group label {
+    label {
       display: block;
-      margin-bottom: 5px;
       font-weight: bold;
+      margin-bottom: 5px;
     }
-    .form-group label .required {
+    .required {
       color: red;
     }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
+    input, textarea, select {
       width: 100%;
       padding: 10px;
       border: 1px solid #ddd;
       border-radius: 4px;
       box-sizing: border-box;
+      font-size: 1em;
     }
-    .form-group button {
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .checkbox-group label {
+      font-weight: normal;
+    }
+    button {
       width: 100%;
       padding: 12px;
+      font-size: 1.1em;
       background-color: #007bff;
       color: #fff;
       border: none;
       border-radius: 4px;
       cursor: pointer;
     }
-    .form-group button:hover {
+    button:hover {
       background-color: #0056b3;
     }
-    .note {
-      color: #555;
-      font-size: 0.9em;
-      margin-bottom: 10px;
-    }
-    .services-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px; /* Reduced space for small screens */
-      justify-content: space-between;
-    }
-    .services-group label {
-      width: 48%; /* Ensure they are 2 items per row on larger screens */
-      padding: 10px;
-      background-color: #f7f7f7;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-weight: normal;
-      box-sizing: border-box;
-    }
-    .services-group input {
-      margin-right: 10px;
-      width: auto;
-    }
-
-    /* Small Screen Adjustments */
     @media (max-width: 600px) {
-      .services-group label {
-        width: 100%; /* Full width for smaller screens */
-        font-size: 0.9em; /* Slightly smaller font size for better fit */
-        padding: 8px; /* Reduced padding for better space usage */
-      }
       .form-container {
-        padding: 15px; /* Reduced padding */
+        padding: 15px;
+      }
+      h1 {
+        font-size: 1.2em;
       }
     }
   </style>
@@ -113,18 +78,12 @@
 <body>
 
 <div class="form-container">
-  <p class="note"><span class="required">*</span> Indicates required fields</p>
-  <form action="mailto:instint37@gmail.com" method="post" enctype="text/plain">
+  <h1>Service Request Form</h1>
+  <form id="serviceForm" onsubmit="handleFormSubmit(event)">
     <!-- Name -->
     <div class="form-group">
       <label for="name">Name <span class="required">*</span></label>
       <input type="text" id="name" name="name" required>
-    </div>
-    
-    <!-- Email -->
-    <div class="form-group">
-      <label for="email">Gmail (optional)</option></label>
-      <input type="text" id="email" name="email">
     </div>
     
     <!-- Contact Number -->
@@ -133,76 +92,83 @@
       <input type="tel" id="contact" name="contact" pattern="[0-9]{10}" title="Enter a valid 10-digit contact number" required>
     </div>
     
-    <!-- Address -->
+    <!-- Address: House No, Landmark, Sector -->
     <div class="form-group">
-      <label for="address">Address (Currently only available in Delhi-NCR) <span class="required">*</span></label>
-      <textarea id="address" name="address" rows="3" required></textarea>
+      <label for="houseNumber">House No. <span class="required">*</span></label>
+      <input type="text" id="houseNumber" name="houseNumber" required>
     </div>
-    
-    <!-- House No -->
     <div class="form-group">
-      <label for="house_no">House No <span class="required">*</span></label>
-      <input type="text" id="house_no" name="house_no" required>
+      <label for="landmark">Landmark</label>
+      <input type="text" id="landmark" name="landmark">
     </div>
-    
-    <!-- Landmark -->
     <div class="form-group">
-      <label for="landmark">Landmark <span class="required">*</span></label>
-      <input type="text" id="landmark" name="landmark" required>
-    </div>
-    
-    <!-- Pincode -->
-    <div class="form-group">
-      <label for="pincode">Pincode <span class="required">*</span></label>
-      <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" title="Enter a valid 6-digit pincode" required>
+      <label for="sector">Sector</label>
+      <input type="text" id="sector" name="sector">
     </div>
 
-    <!-- Service Section -->
+    <!-- Service(s) Needed -->
     <div class="form-group">
       <label>Service(s) Needed <span class="required">*</span>:</label>
-      <div class="services-group">
-        <label><input type="checkbox" name="service" value="Home Cleaning"> Home Cleaning</label>
-        <label><input type="checkbox" name="service" value="Cook"> Cook</label>
-        <label><input type="checkbox" name="service" value="Dog Walker"> Dog Walker</label>
-        <label><input type="checkbox" name="service" value="Plumber"> Plumber</label>
-        <label><input type="checkbox" name="service" value="Electrician"> Electrician</label>
-        <label><input type="checkbox" name="service" value="Laundry Service"> Laundry Service</label>
-        <label><input type="checkbox" name="service" value="Carpenter"> Carpenter</label>
-        <label><input type="checkbox" name="service" value="On-site Salon Service"> On-site Salon Service</label>
-        <label><input type="checkbox" name="service" value="On-site Musical Band"> On-site Musical Band</label>
-        <label><input type="checkbox" name="service" value="Bike Service"> Bike Service</label>
-        <label><input type="checkbox" name="service" value="Water Tank Cleaning"> Water Tank Cleaning</label>
-        <label><input type="checkbox" name="service" value="Fish Aquarium Cleaning"> Fish Aquarium Cleaning</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="services" value="Home Cleaning"> Home Cleaning</label>
+        <label><input type="checkbox" name="services" value="Cook"> Cook</label>
+        <label><input type="checkbox" name="services" value="Dog Walker"> Dog Walker</label>
+        <label><input type="checkbox" name="services" value="Plumber"> Plumber</label>
+        <label><input type="checkbox" name="services" value="Electrician"> Electrician</label>
+        <label><input type="checkbox" name="services" value="Laundry Service"> Laundry Service</label>
+        <label><input type="checkbox" name="services" value="Carpenter"> Carpenter</label>
+        <label><input type="checkbox" name="services" value="On-site Salon Service"> On-site Salon Service</label>
       </div>
     </div>
 
-    <!-- Timing Section -->
+    <!-- Preferred Timing -->
     <div class="form-group">
-      <label for="timing">Preferred Time Slot <span class="required">*</span></label>
-      <select id="timing" name="timing" required>
-        <option value="6:00 AM - 8:00 AM">6:00 AM - 8:00 AM</option>
-        <option value="8:00 AM - 10:00 AM">8:00 AM - 10:00 AM</option>
-        <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
-        <option value="12:00 PM - 2:00 PM">12:00 PM - 2:00 PM</option>
-        <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
-        <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
-        <option value="6:00 PM - 8:00 PM">6:00 PM - 8:00 PM</option>
-        <option value="8:00 PM - 10:00 PM">8:00 PM - 10:00 PM</option>
-        <option value="from 10:00 PM">from 10:00 PM</option>
-      </select>
+      <label for="timing">Preferred Timing <span class="required">*</span></label>
+      <input type="time" id="timing" name="timing" required>
     </div>
 
-    <!-- Date Section -->
+    <!-- Date -->
     <div class="form-group">
       <label for="date">Preferred Date <span class="required">*</span></label>
       <input type="date" id="date" name="date" required>
     </div>
 
-    <!-- Submit Button -->
+    <!-- Submit -->
     <div class="form-group">
       <button type="submit">Submit</button>
     </div>
   </form>
 </div>
+
+<script>
+  function handleFormSubmit(event) {
+    event.preventDefault();
+
+    // Gather form data
+    const name = document.getElementById("name").value;
+    const contact = document.getElementById("contact").value;
+    const houseNumber = document.getElementById("houseNumber").value;
+    const landmark = document.getElementById("landmark").value || "N/A";
+    const sector = document.getElementById("sector").value || "N/A";
+    const services = Array.from(document.querySelectorAll('input[name="services"]:checked')).map(el => el.value).join(", ");
+    const timing = document.getElementById("timing").value;
+    const date = document.getElementById("date").value;
+
+    // Construct the mailto URL
+    const mailtoLink = `mailto:instint37@gmail.com?subject=Service Request&body=` +
+                       `Name: ${name}%0A` +
+                       `Contact: ${contact}%0A` +
+                       `House No: ${houseNumber}%0A` +
+                       `Landmark: ${landmark}%0A` +
+                       `Sector: ${sector}%0A` +
+                       `Service(s) Needed: ${services}%0A` +
+                       `Preferred Timing: ${timing}%0A` +
+                       `Preferred Date: ${date}`;
+
+    // Open mail client with prefilled data
+    window.location.href = mailtoLink;
+  }
+</script>
+
 </body>
 </html>
