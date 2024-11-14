@@ -263,6 +263,7 @@ footer {
 }
 @media screen and (max-width: 768px) {
   .book-button {
+    margin-bottom: 2px;
       position: fixed; /* Fixed position to keep it visible */
       bottom: 25px; /* Position it at the bottom */
       right: 20px; /* Position it to the right */
