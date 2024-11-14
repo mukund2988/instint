@@ -102,7 +102,7 @@ body {
 
   .menu-toggle {
     font-size: 30px;
-    color: #3f0707;
+    color: #ffffff;
     display: block; /* Show the menu toggle button */
     position: absolute; /* Position it absolutely */
     right: 20px; /* Align to the right */
