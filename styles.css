@@ -72,7 +72,7 @@ body {
 }
 
 .hero2 p {
-    font-size: 24px; 
+    font-size: 20px; 
     color: #fff; 
     background: linear-gradient(to right, #ee7631, #eecc69, #84d6e9);
     -webkit-background-clip: text;
@@ -86,11 +86,11 @@ body {
     }
 
     .hero2 h1 {
-        font-size: 32px; 
+        font-size: 28px; 
     }
 
     .hero2 p {
-        font-size: 18px; 
+        font-size: 15px; 
     }
 }
 
