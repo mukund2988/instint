@@ -261,7 +261,24 @@ footer {
 .book-button:hover {
   background-color: #e07c25; /* Darker shade on hover */
 }
+@media screen and (max-width: 768px) {
+  .book-button {
+      position: fixed; /* Fixed position to keep it visible */
+      bottom: 25px; /* Position it at the bottom */
+      right: 20px; /* Position it to the right */
+      background-color: #f48b29; /* Background color */
+      padding: 15px 20px; /* Padding adjustments for mobile */
+      font-size: 16px; /* Adjust font size for mobile */
+      box-shadow: 0px 0px 10px rgba(255, 165, 0, 0.8); /* Glow effect */
+      z-index: 1000; /* Make sure it's on top of other elements */
+  }
 
+  .book-button:hover {
+      background-color: #e07c25; /* Darker shade on hover */
+      box-shadow: 0px 0px 15px rgba(255, 140, 0, 1); /* Stronger glow on hover */
+      transform: scale(1.05); /* Slightly enlarge on hover */
+  }
+}
 /* Responsive styling */
 @media screen and (max-width: 768px) {
   .services-container {
