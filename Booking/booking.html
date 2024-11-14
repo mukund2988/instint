@@ -220,7 +220,7 @@
   </form>
 </div>
 <script>
-    function handleFormSubmit(event) {
+   function handleFormSubmit(event) {
     event.preventDefault();
 
     // Gather form data
@@ -228,31 +228,32 @@
     const email = document.getElementById("email").value;
     const contact = document.getElementById("contact").value;
     const address = document.getElementById('address').value;
-    const houseNumber = document.getElementById("houseNumber").value;
+    const houseNumber = document.getElementById("house_no").value;
     const landmark = document.getElementById("landmark").value || "N/A";
-    const sector = document.getElementById("sector").value || "N/A";
     const pincode = document.getElementById("pincode").value || "N/A";
-    const services = Array.from(document.querySelectorAll('input[name="services"]:checked')).map(el => el.value).join(", ");
+    
+    // Get the selected services
+    const services = Array.from(document.querySelectorAll('input[name="service"]:checked')).map(el => el.value).join(", ");
+    
     const timing = document.getElementById("timing").value;
     const date = document.getElementById("date").value;
 
     // Construct the mailto URL
     const mailtoLink = `mailto:instint37@gmail.com?subject=Service Request&body=` +
                        `Name: ${name}%0A` +
-                       `Gamil:  ${email}%0A`+
+                       `Gmail: ${email}%0A` +
                        `Contact: ${contact}%0A` +
-                       `Adress: ${address}%0A`+
+                       `Address: ${address}%0A` +
                        `House No: ${houseNumber}%0A` +
                        `Landmark: ${landmark}%0A` +
-                       `Sector: ${sector}%0A` +
-                       `Pincode: ${pincode}%0A`+
+                       `Pincode: ${pincode}%0A` +
                        `Service(s) Needed: ${services}%0A` +
                        `Preferred Timing: ${timing}%0A` +
                        `Preferred Date: ${date}`;
 
     // Open mail client with prefilled data
     window.location.href = mailtoLink;
-  }
+}
 </script>
 </body>
 </html>
