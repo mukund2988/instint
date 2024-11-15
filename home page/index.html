@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/navbarPage/navbarcss/navbar.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="/assets/faviconn/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Include Font Awesome -->
+    <title>instint</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero {
+    text-align: center;
+    padding: 20px;
+  }
+
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #5fe9ee;
+    min-width: 145px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 1px solid black ;
+  }
+
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  
+  .dropdown-content a:hover {
+    background-color: #95c7f5;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar" id="navbar">
+        <img src="/assets/logo/logo.png" alt="Logo" class="logo">
+        <button class="menu-toggle" id="menuToggle"><b>☰</b></button>
+        <ul id="navbar-links">
+            <li><a href="/home page/index.html"><b>Home</b></a></li>
+            <li><a href="/navbarPage/about.html"><b>About</b></a></li>
+            <li><a href="/navbarPage/services.html"><b>Our Services</b></a></li>
+            <li><a href="#contact"><b>Contact</b></a></li> <!-- Change href to #contact -->
+        </ul>
+    </nav>
+
+    <!-- Background Image Section -->
+    <div class="hero">
+        <h1>Welcome to instint</h1>
+        <p>We are providing door-to-door services at a low price.</p>
+        <p>In Delhi NCR</p>
+        
+        <!-- Dropdown button for services -->
+        <div class="dropdown">
+            <button class="button dropdown-btn">Our Services</button>
+            <div class="dropdown-content">
+                <a href="/navbarPage/service/delhi_ncr.html">Delhi NCR</a>
+                <a href="/navbarPage/service/allahabad.html">Allahabad</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="hero2">
+        <h1>instint: On-Request Deliveries to Your Prayagraj Kumbh Camp</h1>
+        <p>instint brings essential goods directly to your camp during the Kumbh Mela upon your request. From fresh vegetables and groceries to drinking water and daily necessities, simply place your booking via call or message, and we’ll promptly deliver what you need.  </p>
+        <p>providing reliable and convenient service, allowing you to focus fully on your spiritual journey. With In.stint, enjoy peace of mind knowing that your essential needs are just a call or message away.</p>
+        
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="contact" id="contact"> <!-- Add id="contact" -->
+        <h2>Contact Us</h2>
+        <form action="mailto:instint37@gmail.com" method="post" enctype="text/plain">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        
+        
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <a href="mailto:instint37@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope social-icon"></i></a>
+            <a href="https://instagram.com/in.stint/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram social-icon"></i></a>
+            <a href="https://wa.me/6393466850" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp social-icon"></i></a>
+            <a href="tel:6393466850" aria-label="Call"><i class="fas fa-phone social-icon"></i></a>
+        </div>
+        <footer>
+            <p>All rights reserved © instint</p>
+        </footer>
+       </div>
+    
+   
+
+    <script src="script.js"></script>
+</body>
+</html>

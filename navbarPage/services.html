@@ -190,16 +190,28 @@ section p {
         padding: 8px 16px;
     }
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    background-color: transparent;
+    color: rgb(0, 0, 0); /* Adjust text color */
+    font-size: 14px; /* Adjust font size if needed */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
 </style>
 <body>
     <nav class="navbar" id="navbar">
-        <img src="/assets/logo.png" alt="Logo" class="logo">
+        <img src="/assets/logo/logo.png" alt="Logo" class="logo">
         <button class="menu-toggle" id="menuToggle"><b>☰</b></button>
         <ul id="navbar-links">
-            <li><a href="/index.html"><b>Home</b></a></li>
+            <li><a href="/home page/index.html"><b>Home</b></a></li>
             <li><a href="/navbarPage/about.html"><b>About</b></a></li>
             <li><a href="/navbarPage/services.html"><b>Our Services</b></a></li>
-            <li><a href="/index.html"><b>Contact</b></a></li>
+            <li><a href="/home page/index.html#contact"><b>Contact</b></a></li>
         </ul>
     </nav>
 
@@ -208,15 +220,20 @@ section p {
         <section id="delhi-ncr">
             <h2>Services in Delhi NCR</h2>
             <p>In.stint provides a range of convenient door-to-door services in Delhi NCR, including home cleaning, cooking, plumbing, electrician services, and many other essential services to meet your daily needs.</p>
-            <a href="/navbarPage/service/delhi_ncr.html" class="book-button">Book for Delhi NCR</a>
+            <a href="/service/delhi_ncr/delhi_ncr.html" class="book-button">Book for Delhi NCR</a>
         </section>
 
         <!-- Allahabad Kumbh Section -->
         <section id="allahabad-kumbh">
             <h2>Services for Prayagraj Kumbh</h2>
             <p>In.stint brings essential goods directly to your camp during the Kumbh Mela upon request. From fresh vegetables and groceries to drinking water and daily necessities, place your booking via call or message for prompt delivery, allowing you to focus on your spiritual journey with peace of mind.</p>
-            <a href="/navbarPage/service/allahabad.html" class="book-button">Book for Allahabad Kumbh</a>
+            <a href="/service/allhabad/allahabad.html" class="book-button">Book for Allahabad Kumbh</a>
         </section>
+
+        <footer>
+            <p>All rights reserved © instint</p>
+          </footer>
+        
     </div>
 
     <script>
