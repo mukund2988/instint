@@ -245,6 +245,43 @@ footer {
   margin: 5px 0; /* Space above and below the description */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for description */
 }
+.price-button {
+  background-color: #f48b29;
+  color: #fff;
+  border: none;
+  padding: 8px 16px; /* Smaller padding for better responsiveness */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Responsive font size */
+  margin-top: 10px;
+ text-decoration: none;
+  display: inline-block;
+  width: 100%; /* Make the button fill the container on smaller screens */
+  max-width: 200px; /* Limit the width on larger screens */
+  text-align: center;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.price-button:hover {
+  background-color:#e07c25;
+}
+
+/* Responsive design using media queries */
+@media (max-width: 768px) {
+  .price-button {
+      font-size: 12px; /* Smaller font size on medium screens */
+      padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .price-button {
+      font-size: 10px; /* Even smaller font size on small screens */
+      padding: 4px 8px;
+      max-width: 150px; /* Adjust width for very small screens */
+  }
+}
+
 
 .book-button {
   background-color: #f48b29; /* Button background color */

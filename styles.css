@@ -9,7 +9,7 @@
 }
 
 body {
-    background-image: url('./assets/Door-to-Door\ Services\ Your\ Trusted\ Solution\ for\ Everyday\ Needs.png');
+    background-image: url('/assets/sections_pic/Door-to-Door\ Services\ Your\ Trusted\ Solution\ for\ Everyday\ Needs.webp');
     font-family: Arial, sans-serif;
     color: white; 
     display: flex; 
@@ -18,7 +18,7 @@ body {
 }
 /* Background Image Section */
 .hero {
-    background-image: url('./assets/Welcome to.png');
+    background-image: url('/assets/sections_pic/hero1.webp');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh; /* Full height */
@@ -50,7 +50,7 @@ body {
 /* 2*/
 
 .hero2 {
-    background-image: url('./assets/hero2.jpg');
+    background-image: url('/assets/sections_pic/hero2.webp');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh; /* Full height */
@@ -115,7 +115,7 @@ body {
 
     margin: 2px;
     padding: 40px 20px; 
-    background-image: url('https://getwallpapers.com/wallpaper/full/2/c/8/719234-full-size-beautiful-background-images-1920x1080-samsung-galaxy.jpg');
+    background-image: url('/assets/sections_pic/images\ \(2\).webp');
     background-repeat: no-repeat;
     width: 100%;
     background-size: cover;
