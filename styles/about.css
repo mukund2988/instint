@@ -1,0 +1,327 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('/assets/sections_pic/Door-to-Door\ Services\ Your\ Trusted\ Solution\ for\ Everyday\ Needs.webp');
+    font-family: Arial, sans-serif;
+    color: white; 
+    display: flex; 
+    flex-direction: column; 
+    
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed; /* Make navbar fixed */
+    top: 0; /* Stick to top */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease; /* Smooth transition for hiding */
+}
+
+.navbar a {
+    color: rgb(217, 232, 240);
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+.navbar a:hover {
+    color: #ee7631;
+    text-decoration: underline;
+}
+
+.navbar .logo {
+    border: 2px solid;
+    border-color: #f48b29;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    background-color: transparent;
+    color: rgb(6, 4, 59);
+    cursor: pointer;
+    padding: 2px;
+    border: none;
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        align-items: center;
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        background-color: #659a99 ;
+        z-index: 1;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .navbar ul.show {
+        border-radius: 100px;
+        display: flex; /* Show when toggled */
+    }
+
+    .menu-toggle {
+        font-size: 30px;
+        color: #ffffff;
+        display: block; /* Show the menu toggle button */
+        position: absolute; /* Position it absolutely */
+        right: 20px; /* Align to the right */
+        top: 10px; /* Adjust vertical position */
+    }
+
+    .navbar .logo {
+        display: none;
+        width: 40px;
+        height: 20px;
+    }
+}
+
+/* Adjust for very small screens */
+@media (max-width: 506px) and (max-height: 280px) {
+    .navbar .logo {
+        display: none;
+    }
+
+    .menu-toggle {
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Shift left by half its width */
+        top: 10px; /* Keep the toggle at the top */
+    }
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #5fe9ee;
+    min-width: 145px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 1px solid black ;
+  }
+
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  
+  .dropdown-content a:hover {
+    background-color: #95c7f5;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+
+/* About Section */
+.about {
+    background-image: url('/assets/Door-to-Door Services Your Trusted Solution for Everyday Needs.png'); /* Ensure correct path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; /* Full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    position: relative; /* Make sure it's relative */
+    z-index: 1;
+}
+.about-content {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    text-align: left; 
+    gap: 30px; 
+}
+
+.about-image {
+    
+    border: 2px solid;
+    color: #ee7631;
+    width: 200px; 
+    height: 200px;
+    border-radius: 100px; 
+}
+
+.about-text {
+    
+    max-width: 600px; /* Limit width of text */
+}
+.heading
+{
+    background: linear-gradient(to right, #68dfd9, #e5f9e9, #d716f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+.para
+{
+    background: linear-gradient(to right, #daee21, #fbe3c2, #dd1c1c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Stack vertically on small screens */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .about-image {
+        width: 100%; /* Make image full width on small screens */
+        max-width: 200px; /* Set a max-width */
+        margin-top: 30px;
+    }
+
+    .about-text {
+        
+        text-align: center; /* Center text on small screens */
+    }
+}
+
+/* Our Team Section */
+.our-team {
+    padding: 40px 20px; 
+    background: linear-gradient(to right, #4485a3, #501ca9, #b37d4e);
+    text-align: center;
+    margin-top: 2px; /* Space below the about section */
+}
+
+/* Team Members */
+.team-members {
+    display: flex;
+    flex-wrap: wrap; /* Wrap members to the next line */
+    justify-content: center; /* Center members */
+}
+
+.team-member {
+    margin: 20px; 
+    text-align: center; 
+    width: 200px; /* Fixed width for team member cards */
+}
+
+.team-member img {
+    border: 2px solid;
+    border-color: #ee7631;
+    border-radius: 50%; /* Circular image */
+    width: 150px; /* Image size */
+    height: 150px; /* Image size */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+.team-member h3 {
+    color: #71c495;
+    margin-top: 10px; 
+    font-size: 20px; 
+}
+
+.team-member p {
+    font-size: 16px; 
+    color: #000000; /* Darker color for text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about {
+        background-attachment: scroll; /* Change to scroll on small screens */
+        height: auto; /* Allow height to adjust for content */
+        padding: 40px 20px; /* Increase padding for better spacing */
+    }
+
+    .about h1 {
+        font-size: 32px; 
+    }
+
+    .about p {
+        font-size: 18px; 
+        max-width: 100%; /* Allow full width */
+        padding: 0 10px; 
+    }
+
+    .our-team {
+        padding: 20px 10px; 
+    }
+
+    .our-team h2 {
+        
+        font-size: 28px; 
+    }
+
+    .team-members {
+        flex-direction: column; /* Stack team members vertically on small screens */
+        align-items: center; 
+    }
+
+    .team-member {
+        width: 90%; /* Allow full width on small screens */
+        max-width: 300px; 
+        margin: 10px 0; 
+    }
+
+    .team-member img {
+        width: 120px; 
+        height: 120px; 
+    }
+}
+
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    background-color: transparent;
+    color: rgb(0, 0, 0); /* Adjust text color */
+    font-size: 14px; /* Adjust font size if needed */
+    z-index: 1000; /* Ensure it stays on top */
+}
