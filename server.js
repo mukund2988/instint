@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 
-
 // Load environment variables from .env file
 dotenv.config();
 
@@ -14,7 +13,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // MongoDB connection setup
-const MONGO_URI = process.env.MONGO_URI; // Your MongoDB URI
+const MONGO_URI = process.env.MONGO_URI; // Mongo URI from .env file
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch((error) => console.error('MongoDB connection error:', error));
@@ -32,11 +31,12 @@ const User = mongoose.model('User', new mongoose.Schema({
   shopName: String,
 }), 'instint_data'); // Specify collection name as "instint_data"
 
-app.get('./register', (req, res) => {
-  res.sendFile(__dirname + './public/register.html');
+// Corrected the route for serving the register page
+app.get('/register', (req, res) => {
+  res.sendFile(__dirname + '/public/register.html'); // Fixed the path
 });
 
-
+// Handle form submission for registration
 app.post('/register', (req, res) => {
   const { firstName, middleName, lastName, mobile, gmail, address, workArea, area, shopName } = req.body;
 
@@ -49,7 +49,7 @@ app.post('/register', (req, res) => {
     gmail,
     address,
     workArea,
-    area: area || [],
+    area: area || [], // Handle if 'area' is empty or not provided
     shopName,
   });
 
