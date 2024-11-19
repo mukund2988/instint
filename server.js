@@ -1,42 +1,74 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+const dotenv = require('dotenv');
 
+
+// Load environment variables from .env file
+dotenv.config();
+
+// Initialize the Express app
 const app = express();
 
-// Middleware
-app.use(bodyParser.json());
-app.use(cors());  // To allow requests from your HTML page
+// Set up middleware to parse incoming form data
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// MongoDB connection setup
+const MONGO_URI = process.env.MONGO_URI; // Your MongoDB URI
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .catch((error) => console.error('MongoDB connection error:', error));
 
-// Define a schema for the data
-const formSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  message: String,
+// Define a User model (adjusted for the "instint_data" collection in the "test" database)
+const User = mongoose.model('User', new mongoose.Schema({
+  firstName: String,
+  middleName: String,
+  lastName: String,
+  mobile: String,
+  gmail: String,
+  address: String,
+  workArea: String,
+  area: [String],
+  shopName: String,
+}), 'instint_data'); // Specify collection name as "instint_data"
+
+app.get('./register', (req, res) => {
+  res.sendFile(__dirname + './public/register.html');
 });
 
-const FormData = mongoose.model('FormData', formSchema);
 
-// Endpoint to handle form submissions
-app.post('/submit-form', async (req, res) => {
-  try {
-    const formData = new FormData(req.body);
-    await formData.save();
-    res.status(200).send('Form data saved successfully');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error saving form data');
-  }
+app.post('/register', (req, res) => {
+  const { firstName, middleName, lastName, mobile, gmail, address, workArea, area, shopName } = req.body;
+
+  // Create a new user object
+  const newUser = new User({
+    firstName,
+    middleName,
+    lastName,
+    mobile,
+    gmail,
+    address,
+    workArea,
+    area: area || [],
+    shopName,
+  });
+
+  // Save the user to the MongoDB database
+  newUser.save()
+    .then(() => {
+      res.send('<h2>Registration Successful!</h2><p>Your registration has been completed successfully.</p><a href="/">Go to Home</a>');
+    })
+    .catch((error) => {
+      console.error('Error saving user:', error);
+      res.status(500).send('<h2>Error!</h2><p>Something went wrong. Please try again later.</p>');
+    });
 });
 
+// Serve static files (index.html, about.html, etc.)
+app.use(express.static('public'));
+
+// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
